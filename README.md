@@ -10,9 +10,17 @@ In order to run this project:
 
 ```sh
 
+* database credentials can be configured in a unix base OS
+
 export MONGO_DATABASE=bunny-studio
 
 export MONGO_PASSWORD=bunnypass
+
+* or in windows with powershell terminal
+
+$env:MONGO_DATABASE=bunny-studio
+
+$env:MONGO_PASSWORD=bunnypass
 
 ```
 
@@ -33,8 +41,12 @@ To test the project:
 
 This is a live server, so it only works locally in the (tomcat) embedded server within maven
 
-If you want to connect to DB, then the URI link for mongodb shared server is:
+If you want to connect to DB, then the URI link for mongodb shared cluster is:
 
-### `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongoameliecluster.bx74j.azure.mongodb.net/bunny-studio?retryWrites=true&w=majority`
+```sh
+
+mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongoameliecluster.bx74j.azure.mongodb.net/bunny-studio?retryWrites=true&w=majority
+
+```
 
 Given user and pass of database will be deprecated on Nov 12th 2020, that credentials are only for testing purposes

@@ -48,7 +48,7 @@ This is a live server, so it only works locally in the (tomcat) embedded server 
 
 &nbsp;
 
-## Batabase
+## Database
 
 If you want to connect to DB, then the URI link for mongodb shared cluster is:
 
@@ -59,3 +59,8 @@ mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongoameliecluster.bx74j.azure
 ```
 
 Given user and pass of database will be deprecated on Nov 12th 2020, that credentials are only for testing purposes
+
+<br/>
+Architecture Diagram:
+
+`https://docs.google.com/drawings/d/1xxvQUIGfiwKBu6kSgelzFkBp_RLwzaohCYFYMdlDSdY/edit?usp=sharing`

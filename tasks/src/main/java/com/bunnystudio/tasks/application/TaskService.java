@@ -17,10 +17,14 @@ import com.bunnystudio.tasks.domain.documents.Task;
 import com.bunnystudio.tasks.infrastructure.InvalidValueException;
 import com.bunnystudio.tasks.infrastructure.NotFoundException;
 
+import lombok.Setter;
+
 @Validated
 @Service
 public class TaskService {
 
+	
+	@Setter
 	@Autowired
 	private TaskRepository taskRepository;
 

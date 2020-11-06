@@ -1,0 +1,18 @@
+package com.bunnystudio.tasks;
+
+import org.mockito.Mockito;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+import com.bunnystudio.tasks.domain.TaskRepository;
+
+@Configuration
+public class BeanConfiguration {
+
+	@Bean
+    @Primary
+    public TaskRepository taskRepository() {
+        return Mockito.mock(TaskRepository.class);
+    }
+}

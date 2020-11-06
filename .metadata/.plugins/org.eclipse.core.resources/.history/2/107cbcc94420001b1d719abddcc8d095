@@ -1,0 +1,51 @@
+package com.bunnystudio.users.cucumber;
+
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.bunnystudio.users.application.UserService;
+import com.bunnystudio.users.domain.UserRepository;
+import com.bunnystudio.users.domain.documents.User;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+
+public class UsersSteps {
+
+
+    @Autowired
+    protected MockMvc mvc;
+    @Autowired
+    @InjectMocks
+    protected UserService userService;
+	@MockBean
+	public UserRepository userRepo;
+	
+	private User user;
+
+	@Given("A new user data with name {string}")
+	public void aNewUserDataWithName(String name) throws Exception  {
+		user = User.builder()
+				.name(name)
+				.build();
+	}
+	
+	@When("I try to add it to db via ws")
+	public void iTryToAddItToDbViaWs() {
+		MvcResult mvcResult = mvc.perform(post("/QHOSWSNA/" + testData.getWsName() + ".asmx")
+				.header("SOAPAction", testData.getSoapAction())
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_XML_VALUE)
+				.content(testData.getXmlRequest()))
+				.andReturn();
+		
+        mvcResult.getRequest().getAsyncContext().setTimeout(DEF_RESPONSE_TIMEOUT);
+
+		mvcResult = mvc.perform(asyncDispatch(mvcResult))
+				.andExpect(status().is(testData.getStatus()))
+				.andReturn();
+	}
+	
+}

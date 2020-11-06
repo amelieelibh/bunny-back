@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UsersCucumberTest" project="users" tests="2" started="2" failures="0" errors="2" ignored="0">
+  <testsuite name="com.bunnystudio.users.UsersCucumberTest" time="3.342" displayname="UsersCucumberTest" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]">
+    <testsuite name="User Tests for Bunny Studio" time="3.342" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]">
+      <testcase name="Adding a new user" classname="Adding a new user" time="3.322" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAdzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>java.lang.NullPointerException
+	at com.bunnystudio.users.UsersStepsTest.iTryToAddItToDbViaWs(UsersStepsTest.java:82)
+	at ✽.I try to add it to db via ws(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:9)
+
+</error>
+      </testcase>
+      <testcase name="Retrieving the added user" classname="Retrieving the added user" time="0.019" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAxzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>io.cucumber.junit.UndefinedStepException: The step "An existent user named as "Amelie" with userId 1" is undefined. You can implement it using the snippet(s) below:
+
+@Given("An existent user named as {string} with userId {int}")
+public void an_existent_user_named_as_with_user_id(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+Some other steps were also undefined:
+
+@When("I call the service with GET method with userId {int}")
+public void i_call_the_service_with_get_method_with_user_id(Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("I verify that the name of the user is {string}")
+public void i_verify_that_the_name_of_the_user_is(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

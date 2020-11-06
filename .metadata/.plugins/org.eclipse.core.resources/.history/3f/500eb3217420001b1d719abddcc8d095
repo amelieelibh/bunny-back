@@ -1,0 +1,5 @@
+package com.bunnystudio.tasks;
+
+public class BeanConfiguration {
+
+}

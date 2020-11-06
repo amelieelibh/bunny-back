@@ -13,3 +13,10 @@
 1604644759842	Rename type 'UserModelListener'
 1604645085327	Rename type 'UsersApplicationTests'
 1604645335857	Rename package 'com.bunnystudio.users'
+1604692008099	Rename package 'com.bunnystudio.users'
+1604692209592	Rename type 'UsersCucumberTest'
+1604692338879	Rename type 'UsersStepsTest'
+1604692399257	Rename field 'user'
+1604697944345	Delete element
+1604700470641	Rename type 'TasksStepsTest'
+1604700516013	Rename type 'TasksSteps'

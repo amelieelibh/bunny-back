@@ -1,0 +1,60 @@
+package com.bunnystudio.users.cucumber;
+
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.bunnystudio.users.application.UserService;
+import com.bunnystudio.users.domain.UserRepository;
+import com.bunnystudio.users.domain.documents.User;
+
+import io.cucumber.core.internal.gherkin.deps.com.google.gson.Gson;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+public class UsersSteps {
+
+
+    @Autowired
+    protected MockMvc mvc;
+    @Autowired
+    @InjectMocks
+    protected UserService userService;
+	@MockBean
+	public UserRepository userRepo;
+	
+	private User user;
+	private Gson gson = new Gson();
+
+	@Given("A new user data with name {string}")
+	public void aNewUserDataWithName(String name) throws Exception  {
+		user = User.builder()
+				.name(name)
+				.build();
+	}
+	
+	@When("I try to add it to db via ws")
+	public void iTryToAddItToDbViaWs() {
+		MvcResult mvcResult = mvc.perform(post("/")
+				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+				.content(gson.toJson(user))
+//				.andReturn()
+				;
+		
+        mvcResult.getRequest().getAsyncContext().setTimeout(DEF_RESPONSE_TIMEOUT);
+
+		mvcResult = mvc.perform(asyncDispatch(mvcResult))
+				.andExpect(status().is(testData.getStatus()))
+				.andReturn();
+	}
+	
+}

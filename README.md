@@ -10,13 +10,14 @@ In order to run this project:
 
 ```sh
 
-* database credentials can be configured in a unix base OS
+# database credentials can be configured in a unix base OS
 
 export MONGO_DATABASE=bunny-studio
 
 export MONGO_PASSWORD=bunnypass
 
-* or in windows with powershell terminal
+
+# or in windows with powershell terminal
 
 $env:MONGO_DATABASE=bunny-studio
 
@@ -24,22 +25,30 @@ $env:MONGO_PASSWORD=bunnypass
 
 ```
 
--   set directory (cd) to the desired project. ie: users, or tasks
+-   set directory (cd) to the desired project. ie: `cd users`, or `cd tasks`
 
 ### `mvn clean compile install`
 
+This dummy project is not configured with specific profiles for maven neither aditional params.
+
+&nbsp;
+
 ### `mvn spring-boot:run`
 
-The users project will run on port 9091
-The tasks project will run on port 9092
+The `users` project will run on port 9091
+The `tasks` project will run on port 9092
 Services are configured to accept cors request from `localhost:3000`,
-in case that you need to accepto another one, please add it to MvcConfig class
+in case that you need to accept another one, please add it to MvcConfig class
 
 To test the project:
 
 ### `mvn test`
 
 This is a live server, so it only works locally in the (tomcat) embedded server within maven
+
+&nbsp;
+
+## Batabase
 
 If you want to connect to DB, then the URI link for mongodb shared cluster is:
 

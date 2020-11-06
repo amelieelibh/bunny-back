@@ -1,0 +1,222 @@
+package com.bunnystudio.tasks;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.bunnystudio.tasks.application.TaskService;
+import com.bunnystudio.tasks.domain.TaskRepository;
+import com.bunnystudio.tasks.domain.TaskStatus;
+import com.bunnystudio.tasks.domain.documents.Task;
+import com.bunnystudio.tasks.infrastructure.NotFoundException;
+import com.google.common.collect.Lists;
+
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.cucumber.messages.internal.com.google.gson.Gson;
+
+
+public class TasksStepsTest {
+
+
+    @Autowired
+    protected MockMvc mvc;
+    @InjectMocks
+    protected TaskService taskService;
+	@MockBean
+	public TaskRepository taskRepo;
+	
+	private Task task;
+	private String response;
+	private Gson gson = new Gson();
+	private Exception ex;
+
+	@Given("A new task with userId {long} and desc {string}")
+	public void addNewTask(long userId, String desc) throws Exception  {
+		task = Task.builder()
+				.id(1)
+				.userId(userId)
+				.desc(desc)
+				.status(TaskStatus.TODO)
+				.build();
+		Mockito.doReturn(task).when(taskRepo).save(eq(task));
+		Mockito.doReturn(Optional.of(task)).when(taskRepo).findById(eq(task.getId()));
+	}
+	
+	@Given("An existent task with id {long} and desc {string}")
+	public void getExistentTask(long id, String desc) throws Exception  {
+		task = Task.builder()
+				.id(id)
+				.userId(1)
+				.desc(desc)
+				.status(TaskStatus.TODO)
+				.build();
+		Mockito.doReturn(Optional.of(task)).when(taskRepo).findById(any(Long.class));
+	}
+	
+	@Given("Many existent tasks for user {long}")
+	public void getTasksFromUser(String name, long userId) throws Exception  {
+		Mockito.doReturn(Lists.newArrayList(
+				Task.builder()
+				.id(1)
+				.userId(userId)
+				.desc("First")
+				.status(TaskStatus.TODO)
+				.build(),
+				Task.builder()
+				.id(2)
+				.userId(userId)
+				.desc("Second task")
+				.status(TaskStatus.DONE)
+				.build()
+				)).when(taskRepo).findByUserId(eq(userId));
+	}
+	
+	
+	
+	@When("I call the service with POST")
+	public void callPost() throws Exception {
+		String body = gson.toJson(task);
+		
+		MvcResult mvcResult = mvc.perform(post("/api/tasks/")
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.accept(MediaType.APPLICATION_JSON_VALUE)
+				.content(body))
+				.andReturn();
+		
+        mvcResult.getRequest().getAsyncContext().setTimeout(10000);
+
+		mvcResult = mvc
+				.perform(asyncDispatch(mvcResult))
+				.andExpect(status().isOk())
+				.andReturn();
+		
+		response = mvcResult.getResponse().getContentAsString();
+	}
+	
+	@When("I call the service with GET method and id {long}")
+	public void callGet(long id) throws Exception {
+		try {
+			MvcResult mvcResult = mvc.perform(get("/api/tasks/" + id)
+					.accept(MediaType.APPLICATION_JSON_VALUE))
+					.andReturn();
+			
+			mvcResult.getRequest().getAsyncContext().setTimeout(10000);
+			
+			mvcResult = mvc
+					.perform(asyncDispatch(mvcResult))
+					.andExpect(status().isOk())
+					.andReturn();
+			
+			response = mvcResult.getResponse().getContentAsString();
+		}catch (Exception e) {
+			ex = e;
+		}
+	}
+	
+	@When("I call the service with PUT method and id {long} and desc {string} and status {string}")
+	public void iCallTheServiceWithPutMethodWithUserId(long id, String desc, String status) throws Exception {
+		Mockito.doReturn(Optional.of(task)).when(taskRepo).findById(eq(id));
+		Task updated = new Task(task.getId(), task.getUserId(), desc, TaskStatus.valueOf(status));
+		Mockito.doReturn(updated).when(taskRepo).save(eq(updated));
+		
+		String body = gson.toJson(updated);
+		
+		MvcResult mvcResult = mvc.perform(put("/api/tasks/")
+				.accept(MediaType.APPLICATION_JSON_VALUE)
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.content(body))
+				.andReturn();
+		
+		mvcResult.getRequest().getAsyncContext().setTimeout(10000);
+		
+		mvcResult = mvc
+				.perform(asyncDispatch(mvcResult))
+				.andExpect(status().isOk())
+				.andReturn();
+		
+		response = mvcResult.getResponse().getContentAsString();
+	}
+	
+	@When("I call the service with DELETE method and id {long}")
+	public void callDelete(long id) throws Exception {
+		Mockito.doReturn(Optional.of(task)).when(taskRepo).findById(eq(id));
+		Mockito.doNothing().when(taskRepo).deleteById(eq(id));
+		
+		MvcResult mvcResult = mvc.perform(delete("/api/tasks/" + id)
+				.accept(MediaType.APPLICATION_JSON_VALUE))
+				.andReturn();
+		
+		mvcResult.getRequest().getAsyncContext().setTimeout(1000000);
+		
+		mvcResult = mvc
+				.perform(asyncDispatch(mvcResult))
+				.andExpect(status().isOk())
+				.andReturn();
+		
+		response = mvcResult.getResponse().getContentAsString();
+	}
+	
+	
+	
+	
+	
+	@Then("I validate that userId is {long} and desc {string} and status {string}")
+	public void validateTask(long userId, String desc, String status) {
+		Task task = gson.fromJson(response, Task.class);
+		assertNotNull(task);
+		assertEquals(task.getUserId(), userId);
+		assertEquals(task.getDesc(), desc);
+		assertNotNull(task.getStatus());
+		assertEquals(task.getStatus().name(), status);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Then("I validate there must be many tasks")
+	public void validateManyTasks() {
+		List<Task> tasks = gson.fromJson(response, new ArrayList<Task>().getClass());
+		assertNotNull(tasks);
+		assertTrue(tasks.size() > 1);
+	}
+	
+	@Then("I validate that task {long} doesnt exist")
+	public void iValidateThatUserDoesntExist(long id) {
+		Task task = gson.fromJson(response, Task.class);
+		assertEquals(id, task.getId());
+		assertNotNull(ex);
+		assertEquals(NotFoundException.class, ex.getCause().getClass());
+	}
+	
+	
+
+	@Before
+	public void init() {
+		MockitoAnnotations.initMocks(this);
+		taskRepo = Mockito.mock(TaskRepository.class);
+		taskService.setTaskRepository(taskRepo);
+	}
+}

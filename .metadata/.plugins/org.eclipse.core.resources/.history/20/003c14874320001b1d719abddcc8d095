@@ -1,0 +1,21 @@
+package com.bunnystudio.users.cucumber;
+
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.spring.CucumberContextConfiguration;
+
+@CucumberContextConfiguration
+@SpringBootTest
+@AutoConfigureMockMvc
+@RunWith(Cucumber.class)
+@CucumberOptions(extraGlue = {"com.omnitracs.platform.tl.test.ctl.application.common"}, 
+	plugin = { "pretty" }, strict = true, 
+	features = { "src/test/resources/features/carrier/GetCarrier" })
+public class TestGetCarrierCucumber {
+
+}
+

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TasksCucumberTest" project="tasks" tests="5" started="5" failures="1" errors="2" ignored="0">
+  <testsuite name="com.bunnystudio.tasks.TasksCucumberTest" time="5.814" displayname="TasksCucumberTest" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]">
+    <testsuite name="Tasks Tests for Bunny Studio" time="5.814" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdGFza3Mvc3JjL3Rlc3QvcmVzb3VyY2VzL1Rhc2tzLmZlYXR1cmV4]">
+      <testcase name="Adding a new task" classname="Adding a new task" time="5.715" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdGFza3Mvc3JjL3Rlc3QvcmVzb3VyY2VzL1Rhc2tzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAdzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3Rhc2tzL3NyYy90ZXN0L3Jlc291cmNlcy9UYXNrcy5mZWF0dXJleA==]"/>
+      <testcase name="Retrieving existing task" classname="Retrieving existing task" time="0.049" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdGFza3Mvc3JjL3Rlc3QvcmVzb3VyY2VzL1Rhc2tzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAxzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3Rhc2tzL3NyYy90ZXN0L3Jlc291cmNlcy9UYXNrcy5mZWF0dXJleA==]">
+        <failure>
+          <expected>My first task</expected>
+          <actual>This is an existent task</actual>
+          org.opentest4j.AssertionFailedError: expected: &lt;My first task&gt; but was: &lt;This is an existent task&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
+	at com.bunnystudio.tasks.TasksStepsTest.validateTask(TasksStepsTest.java:194)
+	at ✽.I validate that userId is 1 and desc "This is an existent task" and status "TODO"(file:///Users/ameliaelihubarbosa/dev_ws/am/back/tasks/src/test/resources/Tasks.feature:15)
+
+
+        </failure>
+      </testcase>
+      <testcase name="Retrieving task from task" classname="Retrieving task from task" time="0.019" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdGFza3Mvc3JjL3Rlc3QvcmVzb3VyY2VzL1Rhc2tzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABFzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3Rhc2tzL3NyYy90ZXN0L3Jlc291cmNlcy9UYXNrcy5mZWF0dXJleA==]">
+        <error>io.cucumber.core.exception.CucumberException: Step [Many existent tasks for user {long}] is defined with 2 parameters at 'com.bunnystudio.tasks.TasksStepsTest.getTasksFromUser(java.lang.String,long)'.
+However, the gherkin step has 1 arguments:
+ * 1
+Step text: Many existent tasks for user 1
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.arityMismatch(PickleStepDefinitionMatch.java:83)
+	at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:42)
+	at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+	at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:92)
+	at io.cucumber.core.runner.TestStep.run(TestStep.java:64)
+	at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+	at io.cucumber.core.runner.TestCase.run(TestCase.java:104)
+	at io.cucumber.core.runner.Runner.runPickle(Runner.java:71)
+	at io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:151)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:135)
+	at io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:199)
+	at io.cucumber.junit.Cucumber.runChild(Cucumber.java:90)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:234)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:43)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:82)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:73)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+
+</error>
+      </testcase>
+      <testcase name="Updating existing task" classname="Updating existing task" time="0.019" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdGFza3Mvc3JjL3Rlc3QvcmVzb3VyY2VzL1Rhc2tzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABZzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3Rhc2tzL3NyYy90ZXN0L3Jlc291cmNlcy9UYXNrcy5mZWF0dXJleA==]"/>
+      <testcase name="Deleting existing task" classname="Deleting existing task" time="0.012" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.tasks.TasksCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdGFza3Mvc3JjL3Rlc3QvcmVzb3VyY2VzL1Rhc2tzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABtzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3Rhc2tzL3NyYy90ZXN0L3Jlc291cmNlcy9UYXNrcy5mZWF0dXJleA==]">
+        <error>java.lang.NullPointerException
+	at com.bunnystudio.tasks.TasksStepsTest.callDelete(TasksStepsTest.java:175)
+	at ✽.I call the service with DELETE method and id 1(file:///Users/ameliaelihubarbosa/dev_ws/am/back/tasks/src/test/resources/Tasks.feature:29)
+
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

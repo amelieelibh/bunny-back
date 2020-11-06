@@ -1,0 +1,36 @@
+#Author: amelieelibh@gmail.com
+#Keywords Summary : Test for users services
+#Feature: List of scenarios.
+
+#Scenario: Business rule through list of steps with arguments.
+#Given: Some precondition step
+#When: Some key actions
+#Then: To observe outcomes or validation
+#And,But: To enumerate more Given,When,Then steps
+#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
+#Examples: Container for s table
+#Background: List of steps run before each of the scenarios
+#""" (Doc Strings)
+#| (Data Tables)
+#@ (Tags/Labels):To group Scenarios
+#<> (placeholder)
+#""
+## (Comments)
+#Sample Feature Definition Template
+
+@tagUserFeature
+Feature: User Tests for Bunny Studio
+  I want to test CRUD methods for users rest ws
+
+  @tagScenarioAdd
+  Scenario: Adding a new user
+    Given A new user data with name "Amelie"
+    When I try to add it to db via ws
+    Then I validate that userId is present and name matches to "Amelie"
+
+  @tag2
+  Scenario Outline: Retrieving the added user
+    Given An existent user named as "Amelie" with userId 1
+    When I call the service with GET method with userId 1
+    Then I verify that the name of the user is "Amelie"
+

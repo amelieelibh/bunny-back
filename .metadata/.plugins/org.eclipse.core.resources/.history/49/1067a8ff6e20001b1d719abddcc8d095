@@ -1,0 +1,32 @@
+#Author: amelieelibh@gmail.com
+#Keywords Summary : Test for tasks services
+
+Feature: Tasks Tests for Bunny Studio
+  I want to test CRUD methods for tasks rest ws
+
+  Scenario: Adding a new task
+    Given A new task with userId 1 and desc "My first task"
+    When I call the service with POST
+    Then I validate that userId is 1 and desc "My first task" and status "TODO"
+
+  Scenario Outline: Retrieving existing task
+    Given An existent task with id 1 and desc "This is an existent task"
+    When I call the service with GET method and id 1
+    Then I validate that userId is 1 and desc "This is an existent task" and status "TODO"
+
+  Scenario Outline: Retrieving task from task
+    Given Many existent tasks for user 1
+    When I call the service with GET method with userId 1
+    Then I validate there must be many tasks
+
+  Scenario Outline: Updating existing task
+    Given An existent task with id 1 and desc "This is an existent task"
+    When I call the service with PUT method and id 1 and desc "Nothing to do" and status "DONE"
+    Then I validate that userId is 1 and desc "Nothing to do" and status "DONE"
+
+  Scenario Outline: Deleting existing task
+    Given An existent user named as "Amelie" with userId 1
+    When I call the service with DELETE and id 1
+    And I call the service with GET method with userId 1
+    Then I validate that userId 1 doesn't exist
+

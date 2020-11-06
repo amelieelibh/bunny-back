@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UsersCucumberTest" project="users" tests="4" started="4" failures="0" errors="1" ignored="0">
+  <testsuite name="com.bunnystudio.users.UsersCucumberTest" time="40.853" displayname="UsersCucumberTest" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]">
+    <testsuite name="User Tests for Bunny Studio" time="40.852" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]">
+      <testcase name="Adding a new user" classname="Adding a new user" time="6.717" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAdzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]"/>
+      <testcase name="Retrieving existing user" classname="Retrieving existing user" time="0.761" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAxzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]"/>
+      <testcase name="Updating existing user" classname="Updating existing user" time="2.136" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABFzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]"/>
+      <testcase name="Deleting existing user" classname="Deleting existing user" time="31.238" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABZzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>org.springframework.web.util.NestedServletException: Request processing failed; nested exception is com.bunnystudio.users.infrastructure.NotFoundException: 1
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:183)
+	at com.bunnystudio.users.UsersStepsTest.iCallTheServiceWithGetMethodWithUserId(UsersStepsTest.java:110)
+	at ✽.I call the service with GET method with userId 1(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:25)
+Caused by: com.bunnystudio.users.infrastructure.NotFoundException: 1
+	at com.bunnystudio.users.application.UserService.lambda$findUser$0(UserService.java:36)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:401)
+	at com.bunnystudio.users.application.UserService.findUser(UserService.java:36)
+	at com.bunnystudio.users.infrastructure.UserController.lambda$1(UserController.java:51)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1764)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1756)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1016)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1665)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1598)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

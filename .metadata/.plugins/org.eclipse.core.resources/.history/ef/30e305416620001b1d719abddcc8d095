@@ -1,0 +1,194 @@
+package com.bunnystudio.users;
+
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+
+import com.bunnystudio.users.application.UserService;
+import com.bunnystudio.users.domain.UserRepository;
+import com.bunnystudio.users.domain.documents.User;
+import com.bunnystudio.users.infrastructure.NotFoundException;
+
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.cucumber.messages.internal.com.google.gson.Gson;
+import io.cucumber.spring.CucumberContextConfiguration;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isNull;
+import static org.junit.Assert.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Optional;
+
+
+//@CucumberContextConfiguration
+//@SpringBootTest
+public class UsersStepsTest {
+
+
+    @Autowired
+    protected MockMvc mvc;
+//    @Autowired
+    @InjectMocks
+    protected UserService userService;
+	@MockBean
+	public UserRepository userRepo;
+	
+	private User user;
+	private String response;
+	private Gson gson = new Gson();
+	private Exception ex;
+
+	@Given("A new user data with name {string}")
+	public void aNewUserDataWithName(String name) throws Exception  {
+		user = User.builder()
+				.id(1)
+				.name(name)
+				.build();
+		Mockito.doReturn(user).when(userRepo).save(eq(user));
+		Mockito.doReturn(Optional.of(user)).when(userRepo).findById(eq(user.getId()));
+	}
+	
+	@Given("An existent user named as {string} with userId {long}")
+	public void anExistentUserNamedAsNameWithUserId(String name, long userId) throws Exception  {
+		user = User.builder()
+				.id(userId)
+				.name(name)
+				.build();
+		Mockito.doReturn(Optional.of(user)).when(userRepo).findById(eq(userId));
+	}
+	
+	
+	
+	@When("I try to add it to db via ws")
+	public void iTryToAddItToDbViaWs() throws Exception {
+		String body = gson.toJson(user);
+		
+		MvcResult mvcResult = mvc.perform(post("/api/users/")
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.accept(MediaType.APPLICATION_JSON_VALUE)
+				.content(body))
+				.andReturn();
+		
+        mvcResult.getRequest().getAsyncContext().setTimeout(10000);
+
+		mvcResult = mvc
+				.perform(asyncDispatch(mvcResult))
+				.andExpect(status().isOk())
+				.andReturn();
+		
+		response = mvcResult.getResponse().getContentAsString();
+	}
+	
+	@When("I call the service with GET method with userId {long}")
+	public void iCallTheServiceWithGetMethodWithUserId(long userId) throws Exception {
+		try {
+			MvcResult mvcResult = mvc.perform(get("/api/users/" + userId)
+					.accept(MediaType.APPLICATION_JSON_VALUE))
+					.andReturn();
+			
+			mvcResult.getRequest().getAsyncContext().setTimeout(10000);
+			
+			mvcResult = mvc
+					.perform(asyncDispatch(mvcResult))
+					.andExpect(status().isOk())
+					.andReturn();
+			
+			response = mvcResult.getResponse().getContentAsString();
+		}catch (Exception e) {
+			ex = e;
+		}
+	}
+	
+	@When("I call the service with PUT method with userId {long} and name {string}")
+	public void iCallTheServiceWithPutMethodWithUserId(long userId, String name) throws Exception {
+		Mockito.doReturn(Optional.of(user)).when(userRepo).findById(eq(userId));
+		User updatedUser = new User(userId, name);
+		Mockito.doReturn(updatedUser).when(userRepo).save(eq(updatedUser));
+		
+		String body = gson.toJson(updatedUser);
+		
+		MvcResult mvcResult = mvc.perform(put("/api/users/")
+				.accept(MediaType.APPLICATION_JSON_VALUE)
+				.contentType(MediaType.APPLICATION_JSON_VALUE)
+				.content(body))
+				.andReturn();
+		
+		mvcResult.getRequest().getAsyncContext().setTimeout(10000);
+		
+		mvcResult = mvc
+				.perform(asyncDispatch(mvcResult))
+				.andExpect(status().isOk())
+				.andReturn();
+		
+		response = mvcResult.getResponse().getContentAsString();
+	}
+	
+	@When("I call the service with DELETE method with userId {long}")
+	public void iCallTheServiceWithDeleteMethodWithUserId(long userId) throws Exception {
+		Mockito.doReturn(Optional.of(user)).when(userRepo).findById(eq(userId));
+		Mockito.doNothing().when(userRepo).deleteById(eq(userId));
+		
+		MvcResult mvcResult = mvc.perform(delete("/api/users/" + userId)
+				.accept(MediaType.APPLICATION_JSON_VALUE))
+				.andReturn();
+		
+		mvcResult.getRequest().getAsyncContext().setTimeout(1000000);
+		
+		mvcResult = mvc
+				.perform(asyncDispatch(mvcResult))
+				.andExpect(status().isOk())
+				.andReturn();
+		
+		response = mvcResult.getResponse().getContentAsString();
+	}
+	
+	
+	
+	
+	
+	@Then("I validate that userId is {long} and name matches to {string}")
+	public void iValidateThatUserIdIsPresentAndNameMatchesTo(long userId, String name) {
+		User user = gson.fromJson(response, User.class);
+		assertNotNull(user);
+		assertEquals(user.getId(), userId);
+		assertEquals(name, user.getName());
+	}
+	
+	@Then("I validate that userId {long} doesn't exist")
+	public void iValidateThatUserDoesntExist(long userId) {
+		User user = gson.fromJson(response, User.class);
+		assertEquals(userId, user.getId());
+		assertNotNull(ex);
+		assertEquals(NotFoundException.class, ex.getCause().getClass());
+	}
+	
+	
+
+	@Before
+	public void init() {
+		MockitoAnnotations.initMocks(this);
+		userRepo = Mockito.mock(UserRepository.class);
+		
+	}
+}

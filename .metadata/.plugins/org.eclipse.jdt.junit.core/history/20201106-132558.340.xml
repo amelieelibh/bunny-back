@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UsersCucumberTest" project="users" tests="4" started="4" failures="1" errors="3" ignored="0">
+  <testsuite name="com.bunnystudio.users.UsersCucumberTest" time="62.842" displayname="UsersCucumberTest" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]">
+    <testsuite name="User Tests for Bunny Studio" time="62.842" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]">
+      <testcase name="Adding a new user" classname="Adding a new user" time="12.768" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAdzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>java.lang.IllegalStateException: Async result for handler [com.bunnystudio.users.infrastructure.UserController#addUser(UserDto)] was not set during the specified timeToWait=10000
+	at org.springframework.test.web.servlet.DefaultMvcResult.getAsyncResult(DefaultMvcResult.java:146)
+	at org.springframework.test.web.servlet.DefaultMvcResult.getAsyncResult(DefaultMvcResult.java:136)
+	at org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch(MockMvcRequestBuilders.java:270)
+	at com.bunnystudio.users.UsersStepsTest.iTryToAddItToDbViaWs(UsersStepsTest.java:96)
+	at ✽.I try to add it to db via ws(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:9)
+
+</error>
+      </testcase>
+      <testcase name="Retrieving existing user" classname="Retrieving existing user" time="10.026" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAxzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <failure>java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at com.bunnystudio.users.UsersStepsTest.iValidateThatUserIdIsPresentAndNameMatchesTo(UsersStepsTest.java:173)
+	at ✽.I validate that userId is 1 and name matches to "Amelie"(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:15)
+
+</failure>
+      </testcase>
+      <testcase name="Updating existing user" classname="Updating existing user" time="10.017" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABFzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>java.lang.IllegalStateException: Async result for handler [com.bunnystudio.users.infrastructure.UserController#updateUser(UserDto)] was not set during the specified timeToWait=10000
+	at org.springframework.test.web.servlet.DefaultMvcResult.getAsyncResult(DefaultMvcResult.java:146)
+	at org.springframework.test.web.servlet.DefaultMvcResult.getAsyncResult(DefaultMvcResult.java:136)
+	at org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch(MockMvcRequestBuilders.java:270)
+	at com.bunnystudio.users.UsersStepsTest.iCallTheServiceWithPutMethodWithUserId(UsersStepsTest.java:140)
+	at ✽.I call the service with PUT method with userId 1 and name "Amelie Barbosa"(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:19)
+
+</error>
+      </testcase>
+      <testcase name="Deleting existing user" classname="Deleting existing user" time="30.03" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAABZzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:931)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:72)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:167)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:103)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:134)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:183)
+	at com.bunnystudio.users.UsersStepsTest.iCallTheServiceWithDeleteMethodWithUserId(UsersStepsTest.java:159)
+	at ✽.I call the service with DELETE method with userId 1(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:24)
+Caused by: org.springframework.dao.DataAccessResourceFailureException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]; nested exception is com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at org.springframework.data.mongodb.core.MongoExceptionTranslator.translateExceptionIfPossible(MongoExceptionTranslator.java:88)
+	at org.springframework.data.mongodb.core.MongoTemplate.potentiallyConvertRuntimeException(MongoTemplate.java:2874)
+	at org.springframework.data.mongodb.core.MongoTemplate.executeFindOneInternal(MongoTemplate.java:2749)
+	at org.springframework.data.mongodb.core.MongoTemplate.doFindOne(MongoTemplate.java:2466)
+	at org.springframework.data.mongodb.core.MongoTemplate.doFindOne(MongoTemplate.java:2436)
+	at org.springframework.data.mongodb.core.MongoTemplate.findById(MongoTemplate.java:876)
+	at org.springframework.data.mongodb.repository.support.SimpleMongoRepository.findById(SimpleMongoRepository.java:122)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.data.repository.core.support.ImplementationInvocationMetadata.invoke(ImplementationInvocationMetadata.java:72)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:382)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:205)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:550)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:155)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:130)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy91.findById(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy91.findById(Unknown Source)
+	at com.bunnystudio.users.application.UserService.deleteUser(UserService.java:58)
+	at com.bunnystudio.users.infrastructure.UserController.lambda$4(UserController.java:83)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1764)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1756)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:290)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1016)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1665)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1598)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+Caused by: com.mongodb.MongoTimeoutException: Timed out after 30000 ms while waiting to connect. Client view of cluster state is {type=UNKNOWN, servers=[{address=localhost:27017, type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSocketOpenException: Exception opening socket}, caused by {java.net.ConnectException: Connection refused}}]
+	at com.mongodb.internal.connection.BaseCluster.getDescription(BaseCluster.java:177)
+	at com.mongodb.internal.connection.SingleServerCluster.getDescription(SingleServerCluster.java:41)
+	at com.mongodb.client.internal.MongoClientDelegate.getConnectedClusterDescription(MongoClientDelegate.java:147)
+	at com.mongodb.client.internal.MongoClientDelegate.createClientSession(MongoClientDelegate.java:98)
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.getClientSession(MongoClientDelegate.java:278)
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:182)
+	at com.mongodb.client.internal.FindIterableImpl.first(FindIterableImpl.java:189)
+	at org.springframework.data.mongodb.core.MongoTemplate$FindOneCallback.doInCollection(MongoTemplate.java:2917)
+	at org.springframework.data.mongodb.core.MongoTemplate$FindOneCallback.doInCollection(MongoTemplate.java:2888)
+	at org.springframework.data.mongodb.core.MongoTemplate.executeFindOneInternal(MongoTemplate.java:2746)
+	... 42 more
+
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testrun>

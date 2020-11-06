@@ -5,11 +5,6 @@ spring:
       "tasks ws"
     buildtime: "@buildtime@"
     version: "@project.version@"
-  data:
-    mongodb:
-      uri: mongodb+srv://bunnyuser:bunnypass@mongoameliecluster.bx74j.azure.mongodb.net/bunny-studio?retryWrites=true&w=majority
-      authentication-database: "bunny-studio"
-      database: "bunny-studio"
   servlet:
     multipart:
       max-file-size: 30MB
@@ -29,4 +24,4 @@ server:
     contextPath: /bunny
     session:
       timeout: 600000
-  port: 9091
+  port: 9092

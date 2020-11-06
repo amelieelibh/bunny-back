@@ -1,0 +1,16 @@
+package com.bunnystudio.users.cucumber;
+
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.spring.CucumberContextConfiguration;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "src/test/resources")
+public class TestUsersCucumber {
+
+}
+

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,13 +33,15 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Async
 	@GetMapping(value = {"/"},
 			produces = {MediaType.APPLICATION_JSON_VALUE})
 	public CompletableFuture<ResponseEntity<List<UserDto>>> getUsers(){
 		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
 				userService.getAll(), HttpStatus.OK));
 	}
-	
+
+	@Async
 	@GetMapping(value = {"/{userId}"},
 			produces = {MediaType.APPLICATION_JSON_VALUE})
 	public CompletableFuture<ResponseEntity<UserDto>> findUsers(
@@ -47,7 +50,8 @@ public class UserController {
 		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
 				userService.findUser(userId.longValue()), HttpStatus.OK));
 	}
-	
+
+	@Async
 	@PostMapping(path = {"/"},
 			produces = {MediaType.APPLICATION_JSON_VALUE},
 			consumes = {MediaType.APPLICATION_JSON_VALUE})
@@ -58,7 +62,8 @@ public class UserController {
 		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
 				userService.addUser(user), HttpStatus.OK));
 	}
-	
+
+	@Async
 	@PutMapping(path = {"/"},
 			produces = {MediaType.APPLICATION_JSON_VALUE},
 			consumes = {MediaType.APPLICATION_JSON_VALUE})
@@ -68,10 +73,10 @@ public class UserController {
 		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
 				userService.updateUser(user), HttpStatus.OK));
 	}
-	
+
+	@Async
 	@DeleteMapping(path = {"/{userId}"},
-			produces = {MediaType.APPLICATION_JSON_VALUE},
-			consumes = {MediaType.APPLICATION_JSON_VALUE})
+			produces = {MediaType.APPLICATION_JSON_VALUE})
 	public CompletableFuture<ResponseEntity<UserDto>> deleteUser(
 			@Valid @Positive(message = "userId must be a positive long")
 			@PathVariable(required = true, name = "userId") long userId){

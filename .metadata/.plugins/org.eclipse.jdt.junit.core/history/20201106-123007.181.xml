@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UsersCucumberTest" project="users" tests="2" started="2" failures="0" errors="1" ignored="0">
+  <testsuite name="com.bunnystudio.users.UsersCucumberTest" time="12.163" displayname="UsersCucumberTest" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]">
+    <testsuite name="User Tests for Bunny Studio" time="12.163" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]">
+      <testcase name="Adding a new user" classname="Adding a new user" time="4.137" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAdzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]">
+        <error>org.mockito.exceptions.misusing.WrongTypeOfReturnValue: 
+User cannot be returned by findById()
+findById() should return Optional
+***
+If you're unsure why you're getting above error read on.
+Due to the nature of the syntax above problem might occur because:
+1. This exception *might* occur in wrongly written multi-threaded tests.
+   Please refer to Mockito FAQ on limitations of concurrency testing.
+2. A spy is stubbed using when(spy.foo()).then() syntax. It is safer to stub spies - 
+   - with doReturn|Throw() family of methods. More in javadocs for Mockito.spy() method.
+
+	at com.bunnystudio.users.UsersStepsTest.aNewUserDataWithName(UsersStepsTest.java:64)
+	at ✽.A new user data with name "Amelie"(file:///Users/ameliaelihubarbosa/dev_ws/am/back/users/src/test/resources/Users.feature:8)
+
+</error>
+      </testcase>
+      <testcase name="Retrieving the added user" classname="Retrieving the added user" time="8.026" uniqueid="[engine:junit-vintage]/[runner:com.bunnystudio.users.UsersCucumberTest]/[test:rO0ABXNyAClpby5jdWN1bWJlci5qdW5pdC5GZWF0dXJlUnVubmVyJEZlYXR1cmVJZAAAAAAAAAABAgABTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cHNyAAxqYXZhLm5ldC5VUkmsAXguQ55JqwMAAUwABnN0cmluZ3QAEkxqYXZhL2xhbmcvU3RyaW5nO3hwdABWZmlsZTovLy9Vc2Vycy9hbWVsaWFlbGlodWJhcmJvc2EvZGV2X3dzL2FtL2JhY2svdXNlcnMvc3JjL3Rlc3QvcmVzb3VyY2VzL1VzZXJzLmZlYXR1cmV4]/[test:rO0ABXNyAChpby5jdWN1bWJlci5qdW5pdC5QaWNrbGVSdW5uZXJzJFBpY2tsZUlkAAAAAAAAAAECAAJJAApwaWNrbGVMaW5lTAADdXJpdAAOTGphdmEvbmV0L1VSSTt4cAAAAAxzcgAMamF2YS5uZXQuVVJJrAF4LkOeSasDAAFMAAZzdHJpbmd0ABJMamF2YS9sYW5nL1N0cmluZzt4cHQAVmZpbGU6Ly8vVXNlcnMvYW1lbGlhZWxpaHViYXJib3NhL2Rldl93cy9hbS9iYWNrL3VzZXJzL3NyYy90ZXN0L3Jlc291cmNlcy9Vc2Vycy5mZWF0dXJleA==]"/>
+    </testsuite>
+  </testsuite>
+</testrun>

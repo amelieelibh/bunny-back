@@ -1,0 +1,18 @@
+package com.bunnystudio.users.cucumber;
+
+import com.bunnystudio.users.domain.documents.User;
+
+import io.cucumber.java.en.Given;
+
+public class UsersSteps {
+
+	private User user;
+
+	@Given("A new user data with name {string}")
+	public void aNewUserDataWithName(String name) throws Exception  {
+		user = User.builder()
+				.name(name)
+				.build();
+	}
+	
+}

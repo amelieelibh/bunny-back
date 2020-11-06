@@ -32,3 +32,9 @@ To test the project:
 ### `mvn test`
 
 This is a live server, so it only works locally in the (tomcat) embedded server within maven
+
+If you want to connect to DB, then the URI link for mongodb shared server is:
+
+### `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongoameliecluster.bx74j.azure.mongodb.net/bunny-studio?retryWrites=true&w=majority`
+
+Given user and pass of database will be deprecated on Nov 12th 2020, that credentials are only for testing purposes

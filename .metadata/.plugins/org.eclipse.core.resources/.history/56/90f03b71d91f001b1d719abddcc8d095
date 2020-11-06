@@ -1,0 +1,28 @@
+spring:
+  application: 
+    name: bunny-studios-users
+  data:
+    mongodb:
+      uri: mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_DATABASE}/test?retryWrites=true&w=majority&connectTimeoutMS=30000
+      authentication-database: "bunny-studio"
+      database: "bunny-studio"
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+      enabled: true 
+logging:
+  level:
+    .: debug
+    org:
+      springframework: DEBUG
+    ar.com.tic: DEBUG
+http:
+  multipart:
+    enabled: true 
+server:
+  servlet:
+    contextPath: /bunny
+    session:
+      timeout: 600000
+  port: 9091

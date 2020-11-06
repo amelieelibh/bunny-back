@@ -1,0 +1,8 @@
+package com.bunnystudio.users.infrastructure;
+
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+
+public class NotFound extends NotFoundException {
+
+
+}

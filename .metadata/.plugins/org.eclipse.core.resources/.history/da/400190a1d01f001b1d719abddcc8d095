@@ -1,0 +1,29 @@
+package com.bunnystudio.users.infrastructure;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bunnystudio.users.application.UserService;
+import com.bunnystudio.users.domain.User;
+
+@RestController("/")
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+
+	@GetMapping(path = {"/"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<User>>> getUsers(){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(userService.getAll(), HttpStatus.OK));
+	}
+	
+}

@@ -1,0 +1,24 @@
+package com.bunnystudio.users.domain;
+
+import com.bunnystudio.users.domain.documents.User;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class UserUtil {
+	
+	public static User convertToDocument(UserDto userDto) {
+		return User.builder()
+				.id(userDto.getId())
+				.name(userDto.getName())
+				.build();
+	}
+	
+	public static UserDto convertToDto(User user) {
+		return UserDto.builder()
+				.id(user.getId())
+				.name(user.getName())
+				.build();
+	}
+}

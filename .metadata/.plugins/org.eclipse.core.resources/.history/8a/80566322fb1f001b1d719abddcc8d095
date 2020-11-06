@@ -1,0 +1,81 @@
+package com.bunnystudio.tasks.infrastructure;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bunnystudio.tasks.application.TaskService;
+import com.bunnystudio.tasks.domain.TaskDto;
+
+@Validated
+@RestController
+@RequestMapping(value = {"api/tasks"})
+public class TaskController {
+	
+	@Autowired
+	private TaskService taskService;
+
+	@GetMapping(value = {"/"},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<TaskDto>>> getTasks(){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
+				taskService.getAll(), HttpStatus.OK));
+	}
+	
+	@GetMapping(value = {"/{taskId}"},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<TaskDto>> findTasks(
+			@Valid @Positive(message = "taskId must be a positive long")
+			@PathVariable(required = true, name = "taskId") Long taskId){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
+				taskService.findTask(taskId.longValue()), HttpStatus.OK));
+	}
+	
+	@PostMapping(path = {"/"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<TaskDto>> addTask(
+			@RequestBody 
+			@Valid @NotNull(message = "task to add is required")
+			TaskDto task){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
+				taskService.addTask(task), HttpStatus.OK));
+	}
+	
+	@PutMapping(path = {"/"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<TaskDto>> updateTask(
+			@Valid @NotNull(message = "task to add is required")
+			@RequestBody TaskDto task){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
+				taskService.updateTask(task), HttpStatus.OK));
+	}
+	
+	@DeleteMapping(path = {"/{taskId}"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<TaskDto>> deleteTask(
+			@Valid @Positive(message = "taskId must be a positive long")
+			@PathVariable(required = true, name = "taskId") long taskId){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(taskService.deleteTask(taskId), HttpStatus.OK));
+	}
+	
+}

@@ -1,0 +1,17 @@
+package com.bunnystudio.users.application;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.bunnystudio.users.domain.User;
+
+@Service
+public class UserService {
+
+	public List<User> getAll() {
+		return userRepository.getAllUsers();
+	}
+
+	
+}

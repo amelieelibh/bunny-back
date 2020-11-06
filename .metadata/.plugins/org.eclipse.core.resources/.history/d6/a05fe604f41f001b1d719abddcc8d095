@@ -1,0 +1,9 @@
+package com.bunnystudio.users.domain;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class RegexValidators {
+	public static final String REGEX_NAME = "^(\\w|[À-ú])+(\\s(\\w|[À-ú])+)*$";
+}

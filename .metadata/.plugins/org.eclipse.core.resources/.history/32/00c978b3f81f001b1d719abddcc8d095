@@ -1,0 +1,25 @@
+package com.bunnystudio.users.domain;
+
+import com.bunnystudio.users.domain.documents.Task;
+import com.bunnystudio.users.domain.documents.User;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class TaskUtil {
+	
+	public static Task convertToDocument(TaskDto userDto) {
+		return User.builder()
+				.id(userDto.getId())
+				.name(userDto.getName())
+				.build();
+	}
+	
+	public static UserDto convertToDto(User user) {
+		return UserDto.builder()
+				.id(user.getId())
+				.name(user.getName())
+				.build();
+	}
+}

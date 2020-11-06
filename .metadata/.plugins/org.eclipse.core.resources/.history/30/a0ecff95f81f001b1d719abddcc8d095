@@ -1,0 +1,31 @@
+package com.bunnystudio.users.domain;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.bunnystudio.users.domain.TaskStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "tasks")
+public class TaskDto {
+
+	@Id
+	private long id;
+	
+	@Indexed(direction = IndexDirection.ASCENDING)
+	private long userId;
+	
+	private String desc;
+	
+	private TaskStatus status;
+}

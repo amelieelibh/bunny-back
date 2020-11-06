@@ -1,0 +1,43 @@
+package com.bunnystudio.users.infrastructure;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Positive;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bunnystudio.users.application.UserService;
+import com.bunnystudio.users.domain.User;
+
+@RestController("/")
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+
+	@GetMapping(path = {"/{userId}"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<User>>> getUsers(
+			@Valid @Positive(message = "userId must be a positive long")
+			@PathVariable(required = false, name = "userId") long userId){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(userService.getAll(), HttpStatus.OK));
+	}
+	
+	@GetMapping(path = {"/{userId}"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<User>>> findUser(
+			@PathVariablelong userId){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(userService.getAll(), HttpStatus.OK));
+	}
+	
+}

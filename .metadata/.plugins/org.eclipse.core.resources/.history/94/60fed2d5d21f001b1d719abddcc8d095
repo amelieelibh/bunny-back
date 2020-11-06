@@ -1,0 +1,58 @@
+package com.bunnystudio.users.infrastructure;
+
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bunnystudio.users.application.UserService;
+import com.bunnystudio.users.domain.User;
+
+@RestController("users")
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+
+	@GetMapping(path = {"/{userId}"},
+			produces = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<User>>> getUsers(
+			@Valid @Positive(message = "userId must be a positive long")
+			@PathVariable(required = false, name = "userId") Long userId){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
+				userId == null ? userService.getAll()
+						: userService.findUser(userId.longValue()), HttpStatus.OK));
+	}
+	
+	@PostMapping(path = {"/"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<User>>> addUser(
+			@Valid @NotNull(message = "user to add is required")
+			@RequestBody User user){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(
+				userService.addUser(user), HttpStatus.OK));
+	}
+	
+	@DeleteMapping(path = {"/{userId}"},
+			produces = {MediaType.APPLICATION_JSON_VALUE},
+			consumes = {MediaType.APPLICATION_JSON_VALUE})
+	public CompletableFuture<ResponseEntity<List<User>>> findUser(
+			@Valid @Positive(message = "userId must be a positive long")
+			@PathVariable(required = true, name = "userId") long userId){
+		return CompletableFuture.supplyAsync(() -> new ResponseEntity<>(userService.deleteUser(userId), HttpStatus.OK));
+	}
+	
+}

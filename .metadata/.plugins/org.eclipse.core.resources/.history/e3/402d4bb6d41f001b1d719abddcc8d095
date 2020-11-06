@@ -1,0 +1,11 @@
+package com.bunnystudio.users.infrastructure;
+
+public class NotFoundException extends Exception {
+
+	private static final long serialVersionUID = 3836677757188033028L;
+
+	public NotFoundException(String message) {
+		super(message);
+	}
+
+}

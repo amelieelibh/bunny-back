@@ -1,0 +1,10 @@
+package com.bunnystudio.users.infrastructure;
+
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+
+public class NotFound extends NotFoundException {
+
+	private static final long serialVersionUID = 3836677757188033028L;
+
+
+}

@@ -1,0 +1,9 @@
+package com.bunnystudio.users.infrastructure;
+
+import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
+
+import com.bunnystudio.users.domain.documents.User;
+
+public class UserModelListener extends AbstractMongoEventListener<User> {
+
+}

@@ -1,0 +1,13 @@
+package com.bunnystudio.users.infrastructure;
+
+import java.util.concurrent.CompletionException;
+
+public class InvalidValueException extends CompletionException {
+
+	private static final long serialVersionUID = 3836677757188033028L;
+
+	public InvalidValueException(String message) {
+		super(message);
+	}
+
+}

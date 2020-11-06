@@ -1,0 +1,5 @@
+package com.bunnystudio.users.domain;
+
+public class RegexValidators {
+
+}

@@ -1,0 +1,28 @@
+package com.bunnystudio.users.application;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
+import com.bunnystudio.users.domain.UserDto;
+import com.bunnystudio.users.domain.UserRepository;
+import com.bunnystudio.users.infrastructure.NotFound;
+
+@Service
+public class UserService {
+
+	private UserRepository userRepository;
+
+	public List<UserDto> getAll() {
+		return userRepository.findAll().stream()
+				.map(u -> new UserDto(u.getId(), u.getName()))
+				.collect(Collectors.toList());
+	}
+
+	public List<UserDto> findUser(long userId) {
+		return userRepository.findById(userId).orElseThrow(new NotFound("" + userId));
+	}
+
+	
+}

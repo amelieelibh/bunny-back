@@ -1,0 +1,7 @@
+package com.bunnystudio.users.domain;
+
+public enum TaskStatus {
+	TODO,
+    DONE,
+    ;
+}

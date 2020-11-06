@@ -1,0 +1,5 @@
+package com.bunnystudio.users.domain;
+
+public class RegexValidators {
+	public static final String REGEX_NAME = "^(\\w|[À-ú])+(\\s(\\w|[À-ú])+)*$";
+}

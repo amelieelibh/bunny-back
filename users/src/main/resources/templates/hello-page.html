@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head> 
+	    <title>Getting Started: Bunny Services</title> 
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			
+		<link rel="icon" href="https://tuinversioncolectiva.com/wp-content/uploads/2016/08/logoTuInversionWeb2s22.png" sizes="192x192">
+		<link rel="icon" href="https://tuinversioncolectiva.com/wp-content/uploads/2016/08/logoTuInversionWeb2s22.png" sizes="32x32">
+		
+		<script type="text/javascript">const tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/"); document.write(unescape("<script src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript' %3E%3C/script%3E"));</script>
+	</head>
+    <body>
+	    <table class="table">
+	    	<thead><strong>bunny</strong></thead>
+	    	<tbody>
+	    		<tr>
+	    			<th scope="col">buildTime</th>
+	    			<th scope="col">comment</th>
+	    			<th scope="col">environment</th>
+	    			<th scope="col" colspan="2">buildProperties</th>
+	    		</tr>
+	    		<tr>
+	    			<td th:text="${session.buildTime}" th:unless="${session == null}">[...]</td>
+	    			<td th:text="${session.comment}" th:unless="${session == null}">[...]</td>
+	    			<td th:text="${session.environment}" th:unless="${session == null}">[...]</td>
+	    			<td>name: </td>
+	    			<td th:text="${session.buildProperties.name}" th:unless="${session == null}">[...]</td>
+	    		</tr>
+	    		<tr>
+	    			<td></td>
+	    			<td></td>
+	    			<td th:text="${session.dbenv}" th:unless="${session == null}">[...]</td>
+	    			<td>version: </td>
+	    			<td th:text="${session.buildProperties.version}" th:unless="${session == null}">[...]</td>
+	    		</tr>
+	    		<tr>
+	    			<td></td>
+	    			<td></td>
+	    			<td></td>
+	    			<td>time: </td>
+	    			<td th:text="${session.buildProperties.time}" th:unless="${session == null}">[...]</td>
+	    		</tr>
+	    		<tr>
+	    			<td></td>
+	    			<td></td>
+	    			<td></td>
+	    			<td>artifact: </td>
+	    			<td th:text="${session.buildProperties.artifact}" th:unless="${session == null}">[...]</td>
+	    		</tr>
+	    		<tr>
+	    			<td></td>
+	    			<td></td>
+	    			<td></td>
+	    			<td>group: </td>
+	    			<td th:text="${session.buildProperties.group}" th:unless="${session == null}">[...]</td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	    <br/>
+        <div sec:authorize="isAuthenticated()">
+        	<strong>
+	        	Hello <span sec:authentication="name">someone</span>
+    	        <p><a th:href="@{/logout}">Desconectar</a></p>
+        	</strong>
+        </div>
+        <br>
+        <hr>
+	    
+    </body>
+</html>

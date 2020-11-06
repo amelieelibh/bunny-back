@@ -1,0 +1,15 @@
+1604643408896	Rename type 'UsersApplication'
+1604643422077	Rename type 'UserService'
+1604643442134	Rename type 'UserRepository'
+1604643449838	Rename field 'userRepository'
+1604643718933	Delete element
+1604643728577	Rename type 'UserUtil'
+1604643732243	Delete element
+1604643740335	Copy compilation unit
+1604643744173	Rename type 'Task'
+1604644509015	Delete element
+1604644588996	Rename type 'UserController'
+1604644737152	Rename package 'com.bunnystudio.users'
+1604644759842	Rename type 'UserModelListener'
+1604645085327	Rename type 'UsersApplicationTests'
+1604645335857	Rename package 'com.bunnystudio.users'

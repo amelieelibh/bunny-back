@@ -1,0 +1,13 @@
+package com.bunnystudio.users.infrastructure;
+
+import java.util.function.Supplier;
+
+public class NotFound implements Supplier {
+
+	@Override
+	public Object get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

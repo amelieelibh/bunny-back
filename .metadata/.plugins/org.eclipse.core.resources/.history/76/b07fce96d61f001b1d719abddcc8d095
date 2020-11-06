@@ -1,0 +1,55 @@
+package com.bunnystudio.users.application;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.stereotype.Service;
+
+import com.bunnystudio.users.domain.UserDto;
+import com.bunnystudio.users.domain.UserRepository;
+import com.bunnystudio.users.domain.UserUtil;
+import com.bunnystudio.users.domain.documents.User;
+import com.bunnystudio.users.infrastructure.NotFoundException;
+
+@Service
+public class UserService {
+
+	private UserRepository userRepository;
+
+	public List<UserDto> getAll() {
+		return userRepository.findAll().stream()
+				.map(UserUtil::convertToDto)
+				.collect(Collectors.toList());
+	}
+
+	public UserDto findUser(long userId) {
+		User user = userRepository.findById(userId)
+				.orElseThrow(() -> new NotFoundException(userId));
+		return UserUtil.convertToDto(user);
+	}
+
+	public UserDto addUser(@Valid UserDto userDto) {
+		User savedUser = userRepository.save(UserUtil.convertToDocument(userDto));
+		return UserUtil.convertToDto(savedUser);
+	}
+
+	public UserDto updateUser(@Valid UserDto userDto) {
+		User user = userRepository.findById(userDto.getId())
+				.orElseThrow(() -> new NotFoundException(userDto.getId()));
+		user.setName(userDto.getName());
+		User savedUser = userRepository.save(user);
+		return UserUtil.convertToDto(savedUser);
+	}
+
+	public UserDto deleteUser(@Valid UserDto userDto) {
+		User user = userRepository.findById(userDto.getId())
+				.orElseThrow(() -> new NotFoundException(userDto.getId()));
+		userRepository.delete(user);
+		return userDto;
+	}
+
+	
+}

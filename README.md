@@ -7,7 +7,16 @@ Prerequisites: java14, maven >3.3.x
 
 In order to run this project:
 
-* First set directory (cd) to the desired project. ie: users, or tasks
+
+```sh
+
+export MONGO_DATABASE=bunny-studio
+
+export MONGO_PASSWORD=bunnypass
+
+```
+
+* set directory (cd) to the desired project. ie: users, or tasks
 
 ### `mvn clean compile install`
 
